@@ -2,15 +2,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+function getButtonText() {
+  return 'click on me!';
+}
+
 // create react component
 const App = () => {
-  return <div>Hi There!!!</div>;
-};
+  const style = {
+    backgroundColor: 'blue',
+    color: 'white',
+    border: '3px solid red',
+  };
+  const labelText = 'Enter name:';
 
-// for hot reload
-if (module.hot) {
-  module.hot.accept();
-}
+  return (
+    <div>
+      <label className='label' for='name'>
+        {labelText}
+      </label>
+      <input id='name' type='text' />
+      <button style={style}>{getButtonText()}</button>
+    </div>
+  );
+};
 
 // show component on the screen
 ReactDOM.render(<App />, document.querySelector('#root'));
